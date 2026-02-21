@@ -79,7 +79,7 @@ namespace ConsoleMonopoly.Tests
         public void Decorator_Upgrade_Logic()
         {
             var prop = new Property("Street", 200, 1);
-            
+
             // Базовая рента (100)
             Assert.Equal(100, prop.GetRent());
 
@@ -92,8 +92,8 @@ namespace ConsoleMonopoly.Tests
             var level2 = new SecondUpGrade(prop);
             // 100 * 2.0 = 200
             Assert.Equal(200, level2.GetRent());
-            
-             // 3 уровень
+
+            // 3 уровень
             var level3 = new ThirdUpGrade(prop);
             // 100 * 2.5 = 250
             Assert.Equal(250, level3.GetRent());
@@ -104,17 +104,89 @@ namespace ConsoleMonopoly.Tests
         {
             var game = new Game();
             var player = new Player { Name = "Bankrupt", Money = 50 };
-            // Добавим имущество, которое придется продать
-            var prop = new Property("House", 100, 1); 
+            var prop = new Property("House", 100, 1);
             player.Properties.Add(prop);
             prop.Owner = player;
 
-            // Штраф больше, чем денег (50) + цена продажи дома (50) = 100. Нужно 200.
             game.ApplyPenalty(player, 200);
 
             Assert.True(player.IsBankrupt);
             Assert.Empty(player.Properties);
             Assert.Null(prop.Owner);
         }
+                [Fact]
+        public void BonusField_GivesMoney()
+        {
+            var game = new Game();
+            var player = new Player { Name = "Lucky", Money = 100 };
+            var bonusField = new BonusField("Jackpot", 500);
+
+            bonusField.LandOn(player, game);
+
+            Assert.Equal(600, player.Money);
+        }
+
+        [Fact]
+        public void Monopoly_Decorator_DoublesRent()
+        {
+            var prop = new Property("Street", 200, 1);
+            // Базовая рента 100.
+            
+            var monopoly = new Monopoly(prop);
+            // Монополия удваивает ренту -> 200.
+
+            Assert.Equal(200, monopoly.GetRent());
+        }
+
+        [Fact]
+        public void Board_Initialization_Check()
+        {
+            // Этот тест покроет код конструктора Board, который создает 32 клетки
+            var board = new Board();
+            
+            Assert.Equal(32, board.Cells.Count);
+            Assert.IsType<StartField>(board.Cells[0]);
+            Assert.Contains(board.Cells, c => c is Jail);
+        }
+
+        [Fact]
+        public void Cannot_Buy_If_No_Money()
+        {
+            var game = new Game();
+            var player = new Player { Name = "Poor", Money = 10 }; // Мало денег
+            var prop = new Property("Expensive", 500, 1);
+
+            prop.LandOn(player, game);
+
+            Assert.Null(prop.Owner);
+            Assert.Empty(player.Properties);
+            Assert.Equal(10, player.Money); // Деньги не списались
+        }
+
+        [Fact]
+        public void Upgrade_Logic_With_FullGroup()
+        {
+            var game = new Game();
+            var player = new Player { Name = "Tycoon", Money = 5000 };
+            
+            var prop1 = new Property("Prop1", 100, 1);
+            var prop2 = new Property("Prop2", 100, 1);
+
+            game.Board.Cells.Clear();
+            game.Board.Cells.Add(prop1);
+            game.Board.Cells.Add(prop2);
+
+            prop1.Owner = player;
+            prop2.Owner = player;
+            player.Properties.Add(prop1);
+            player.Properties.Add(prop2);
+
+           
+            prop1.LandOn(player, game);
+
+            Assert.Equal(1, prop1.CountUpGrade);
+            Assert.IsType<FirstUpGrade>(game.Board.Cells[0]);
+        }
     }
+    
 }
