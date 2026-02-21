@@ -5,31 +5,32 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0 
+        dotnet-version: 9.0.x
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ConsoleMonopoly.sln
 
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ConsoleMonopoly.sln --no-restore
 
-    - name: Test and Analyze Coverage
+    - name: Test with Coverage
       run: |
-        dotnet test --no-build --verbosity normal \
+        dotnet test ConsoleMonopoly.sln \
+        --no-build \
+        --verbosity normal \
         /p:CollectCoverage=true \
         /p:CoverletOutputFormat=opencover \
         /p:Threshold=70 \
-        /p:ThresholdType=line \
-        /p:CoverletOutput=./TestResults/
+        /p:ThresholdType=line
