@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMonopoly", "ConsoleMonopoly\ConsoleMonopoly.csproj", "{1BF0255C-5246-4114-8A8C-756151F033DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMonopoly.Tests", "ConsoleMonopoly.Tests\ConsoleMonopoly.Tests.csproj", "{24230DEC-7BA7-411B-9C63-AB581A57EBF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BF0255C-5246-4114-8A8C-756151F033DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF0255C-5246-4114-8A8C-756151F033DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF0255C-5246-4114-8A8C-756151F033DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF0255C-5246-4114-8A8C-756151F033DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24230DEC-7BA7-411B-9C63-AB581A57EBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24230DEC-7BA7-411B-9C63-AB581A57EBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24230DEC-7BA7-411B-9C63-AB581A57EBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24230DEC-7BA7-411B-9C63-AB581A57EBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
