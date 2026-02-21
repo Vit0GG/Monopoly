@@ -114,7 +114,7 @@ namespace ConsoleMonopoly.Tests
             Assert.Empty(player.Properties);
             Assert.Null(prop.Owner);
         }
-                [Fact]
+        [Fact]
         public void BonusField_GivesMoney()
         {
             var game = new Game();
@@ -131,7 +131,7 @@ namespace ConsoleMonopoly.Tests
         {
             var prop = new Property("Street", 200, 1);
             // Базовая рента 100.
-            
+
             var monopoly = new Monopoly(prop);
             // Монополия удваивает ренту -> 200.
 
@@ -143,7 +143,7 @@ namespace ConsoleMonopoly.Tests
         {
             // Этот тест покроет код конструктора Board, который создает 32 клетки
             var board = new Board();
-            
+
             Assert.Equal(32, board.Cells.Count);
             Assert.IsType<StartField>(board.Cells[0]);
             Assert.Contains(board.Cells, c => c is Jail);
@@ -168,7 +168,7 @@ namespace ConsoleMonopoly.Tests
         {
             var game = new Game();
             var player = new Player { Name = "Tycoon", Money = 5000 };
-            
+
             var prop1 = new Property("Prop1", 100, 1);
             var prop2 = new Property("Prop2", 100, 1);
 
@@ -181,11 +181,47 @@ namespace ConsoleMonopoly.Tests
             player.Properties.Add(prop1);
             player.Properties.Add(prop2);
 
-           
+
             prop1.LandOn(player, game);
 
             Assert.Equal(1, prop1.CountUpGrade);
             Assert.IsType<FirstUpGrade>(game.Board.Cells[0]);
+        }
+                [Fact]
+        public void Final_Coverage_Booster()
+        {
+            var game = new Game();
+            game.Players.Add(new Player { Name = "A" });
+            game.Players.Add(new Player { Name = "B" });
+
+            var roll = game.RollDice();
+            Assert.InRange(roll.Total, 2, 12);
+
+            game.CurrentPlayerIndex = 0;
+            game.NextPlayer();
+            Assert.Equal(1, game.CurrentPlayerIndex);
+            game.NextPlayer();
+            Assert.Equal(0, game.CurrentPlayerIndex);
+
+            var propPrint = new Property("PrintProp", 100, 99);
+            propPrint.CountUpGrade = 2;
+            game.Players[0].Properties.Add(propPrint);
+            game.PrintStatus(); 
+
+            var player = game.Players[0];
+            var prop = new Property("Solo", 100, 5); 
+            
+            game.Board.Cells.Clear();
+            game.Board.Cells.Add(prop); 
+            game.Board.Cells.Add(new Property("Other", 100, 5)); 
+
+            prop.Owner = player;
+            player.Properties.Add(prop);
+            player.Money = 1000;
+            
+            prop.LandOn(player, game); 
+            
+            Assert.Equal(0, prop.CountUpGrade);
         }
     }
     
