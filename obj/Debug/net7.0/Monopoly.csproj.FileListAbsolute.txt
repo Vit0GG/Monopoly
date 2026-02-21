@@ -1,0 +1,29 @@
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/bin/Debug/net7.0/Monopoly
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/bin/Debug/net7.0/Monopoly.deps.json
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/bin/Debug/net7.0/Monopoly.runtimeconfig.json
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/bin/Debug/net7.0/Monopoly.dll
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/bin/Debug/net7.0/Monopoly.pdb
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.csproj.AssemblyReference.cache
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.AssemblyInfoInputs.cache
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.AssemblyInfo.cs
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.csproj.CoreCompileInputs.cache
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.dll
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/refint/Monopoly.dll
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.pdb
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/Monopoly.genruntimeconfig.cache
+/Users/mihailtupcij/Projects/Monopoly/Monopoly/obj/Debug/net7.0/ref/Monopoly.dll
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/bin/Debug/net7.0/Monopoly
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/bin/Debug/net7.0/Monopoly.deps.json
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/bin/Debug/net7.0/Monopoly.runtimeconfig.json
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/bin/Debug/net7.0/Monopoly.dll
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/bin/Debug/net7.0/Monopoly.pdb
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.AssemblyInfoInputs.cache
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.AssemblyInfo.cs
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.csproj.CoreCompileInputs.cache
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.dll
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/refint/Monopoly.dll
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.pdb
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/Monopoly.genruntimeconfig.cache
+/Users/mihailtupcij/Downloads/Архив 2/Monopoly/obj/Debug/net7.0/ref/Monopoly.dll
