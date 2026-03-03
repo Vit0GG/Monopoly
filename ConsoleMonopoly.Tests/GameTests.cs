@@ -1,7 +1,9 @@
-﻿using Xunit;
-using ConsoleMonopoly;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using ConsoleMonopoly;
+
+using Xunit;
 
 namespace ConsoleMonopoly.Tests
 {
@@ -187,7 +189,7 @@ namespace ConsoleMonopoly.Tests
             Assert.Equal(1, prop1.CountUpGrade);
             Assert.IsType<FirstUpGrade>(game.Board.Cells[0]);
         }
-                [Fact]
+        [Fact]
         public void Final_Coverage_Booster()
         {
             var game = new Game();
@@ -206,23 +208,23 @@ namespace ConsoleMonopoly.Tests
             var propPrint = new Property("PrintProp", 100, 99);
             propPrint.CountUpGrade = 2;
             game.Players[0].Properties.Add(propPrint);
-            game.PrintStatus(); 
+            game.PrintStatus();
 
             var player = game.Players[0];
-            var prop = new Property("Solo", 100, 5); 
-            
+            var prop = new Property("Solo", 100, 5);
+
             game.Board.Cells.Clear();
-            game.Board.Cells.Add(prop); 
-            game.Board.Cells.Add(new Property("Other", 100, 5)); 
+            game.Board.Cells.Add(prop);
+            game.Board.Cells.Add(new Property("Other", 100, 5));
 
             prop.Owner = player;
             player.Properties.Add(prop);
             player.Money = 1000;
-            
-            prop.LandOn(player, game); 
-            
+
+            prop.LandOn(player, game);
+
             Assert.Equal(0, prop.CountUpGrade);
         }
     }
-    
+
 }

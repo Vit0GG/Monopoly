@@ -94,7 +94,7 @@
         {
             return (int)(base.GetRent() * 1.5);
         }
-        
+
         public override void LandOn(Player player, Game game)
         {
             property.LandOn(player, game);
@@ -280,7 +280,7 @@
         public Board Board { get; set; } = new();
         public List<Player> Players { get; set; } = new();
         public int CurrentPlayerIndex { get; set; } = 0;
-        private Random random = new();
+        private readonly Random random = new();
         private int CountSteps = 0;
 
         public void Start()
