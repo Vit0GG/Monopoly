@@ -32,7 +32,7 @@
 git clone https://github.com/Vit0GG/Monopoly.git
 
 # 2. Собрать проект
-dotnet build
+dotnet build ConsoleMonopoly
 
 # 3. Запустить
 dotnet run --project ConsoleMonopoly
