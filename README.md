@@ -30,16 +30,12 @@
 ```bash
 # 1. Клонировать репозиторий
 git clone https://github.com/Vit0GG/Monopoly.git
-cd Monopoly
 
-# 2. Восстановить зависимости
-dotnet restore
-
-# 3. Собрать проект
+# 2. Собрать проект
 dotnet build
 
-# 4. Запустить
-dotnet run
+# 3. Запустить
+dotnet run --project ConsoleMonopoly
 
 
 Инструкция по использованию
