@@ -1,5 +1,7 @@
 # Monopoly
 
+[![codecov](https://codecov.io/github/Vit0GG/Monopoly/graph/badge.svg?token=I89EQ5FKAX)](https://codecov.io/github/Vit0GG/Monopoly)
+
 ## Описание проекта
 
 Консольная реализация настольной игры **Монополия** на языке C# (.NET 9.0).  
