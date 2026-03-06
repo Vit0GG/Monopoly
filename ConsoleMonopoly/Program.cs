@@ -2,7 +2,7 @@
 {
     public abstract class Cell
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
         public abstract void LandOn(Player player, Game game);
     }
 
@@ -133,7 +133,7 @@
 
     public class Property : Cell
     {
-        public Player Owner { get; set; }
+        public Player? Owner { get; set; }
         public int BaseRent { get; set; }
         public int Price { get; set; }
         public int CountUpGrade { get; set; } = 0;
@@ -225,7 +225,7 @@
 
     public class Player
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "";
         public int Money { get; set; } = 1500;
         public int Position { get; set; } = 0;
         public List<Property> Properties { get; set; } = new();
@@ -313,7 +313,7 @@
 
         public (int Dice1, int Dice2, int Total) RollDice() => (random.Next(1, 7), random.Next(1, 7), random.Next(1, 7) + random.Next(1, 7));
 
-        public void ApplyPenalty(Player player, int amount, Player to = null)
+        public void ApplyPenalty(Player player, int amount, Player? to = null)
         {
             if (player.Money >= amount)
             {

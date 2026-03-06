@@ -1,5 +1,7 @@
 # Monopoly
 
+[![codecov](https://codecov.io/github/Vit0GG/Monopoly/graph/badge.svg?token=I89EQ5FKAX)](https://codecov.io/github/Vit0GG/Monopoly)
+
 ## Описание проекта
 
 Консольная реализация настольной игры **Монополия** на языке C# (.NET 9.0).  
@@ -30,16 +32,12 @@
 ```bash
 # 1. Клонировать репозиторий
 git clone https://github.com/Vit0GG/Monopoly.git
-cd Monopoly
 
-# 2. Восстановить зависимости
-dotnet restore
+# 2. Собрать проект
+dotnet build ConsoleMonopoly
 
-# 3. Собрать проект
-dotnet build
-
-# 4. Запустить
-dotnet run
+# 3. Запустить
+dotnet run --project ConsoleMonopoly
 
 
 Инструкция по использованию

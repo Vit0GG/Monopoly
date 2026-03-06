@@ -1,18 +1,23 @@
-name: .NET CI with Coverage
+name: Multi-Platform CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "**" ]      
   pull_request:
-    branches: [ "main", "master" ]
-  workflow_dispatch:
+    branches: [ "main" ]    
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build_and_test:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest] 
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -22,7 +27,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ConsoleMonopoly.sln
 
-    - name: Check Code Style (Linting)
+    - name: Check Code Style
       run: dotnet format ConsoleMonopoly.sln --verify-no-changes --verbosity diagnostic
 
     - name: Build
@@ -30,10 +35,10 @@ jobs:
 
     - name: Test with Coverage
       run: |
-        dotnet test ConsoleMonopoly.sln \
-        --no-build \
-        --verbosity normal \
-        /p:CollectCoverage=true \
-        /p:CoverletOutputFormat=opencover \
-        /p:Threshold=70 \
-        /p:ThresholdType=line
+        dotnet test ConsoleMonopoly.sln --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Threshold=70 /p:ThresholdType=line
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} 
+        slug: Vit0GG/Monopoly
